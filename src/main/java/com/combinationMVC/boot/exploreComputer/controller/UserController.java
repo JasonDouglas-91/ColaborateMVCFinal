@@ -4,15 +4,12 @@ import com.combinationMVC.boot.exploreComputer.domain.User;
 import com.combinationMVC.boot.exploreComputer.exceptions.UserNotFoundException;
 import com.combinationMVC.boot.exploreComputer.repo.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.NoSuchElementException;
 
-@RestController
+@Controller
 public class UserController {
 
 	@Autowired
@@ -20,8 +17,14 @@ public class UserController {
 
 	@GetMapping("/test")
 	public String home(){
-		return "Home";
+		return "home";
 	}
+	
+	@GetMapping("/index")
+	public String index() {
+		return "index2";
+	}
+	
 	@GetMapping("/users")
 	public List<User> all(){
 		return userRepository.findAll();
