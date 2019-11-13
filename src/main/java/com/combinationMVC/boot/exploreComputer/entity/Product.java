@@ -1,23 +1,22 @@
-package com.combinationMVC.boot.exploreComputer.domain;
+package com.combinationMVC.boot.exploreComputer.entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
+@Table(name="PRODUCT")
 public class Product implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name="PRODUCT_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+    @Column(name="PRODUCT_NAME")
     private String name;
-    @Column
+    @Column(name="PRODUCT_TYPE")
     private String type;
-    @Column
+    @Column(name="PRODUCT_PRICE")
     private long price;
-    @Column
+    @Column(name="PRODUCT_DESCRIPTION")
     private String description;
 
     public Product(){}

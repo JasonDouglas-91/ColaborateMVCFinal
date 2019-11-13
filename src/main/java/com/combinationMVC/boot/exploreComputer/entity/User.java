@@ -1,44 +1,57 @@
-package com.combinationMVC.boot.exploreComputer.domain;
+package com.combinationMVC.boot.exploreComputer.entity;
 
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name="USERS")
 public class User implements Serializable {
     @Id
-    @GeneratedValue
+    @Column(name="USER_ID")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @Column
+    @Column(name="USER_USERID")
+    private String userId;
+    @Column(name="USER_PASSWORD")
+    private String userPassword;
+    @Column(name="FIRST_NAME")
     private String firstName;
-    @Column
+    @Column(name="LAST_NAME")
     private String lastName;
-    @Column
+    @Column(name="PHONE_NUMBER")
     private String phoneNumber;
-    @Column
-    private String Email;
-    @Column
+    @Column(name="EMAIL")
+    private String email;
+    @Column(name="ADDRESS")
+    private String address;
+    @Column(name="START_DATE")
     private LocalDate startDate;
-    @Column
+    @Column(name="CARD_INFO")
     private String cardInfo;
+
 
     public User(){
 
     }
-    public User(long id, String firstName, String lastName, String phoneNumber, String email, LocalDate startDate, String cardInfo) {
+
+    public User(long id, String userId, String userPassword, String firstName, String lastName, String phoneNumber, String email, String address, LocalDate startDate, String cardInfo) {
         this.id = id;
+        this.userId = userId;
+        this.userPassword = userPassword;
         this.firstName = firstName;
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
-        this.Email = email;
+        this.email = email;
+        this.address = address;
         this.startDate = startDate;
         this.cardInfo = cardInfo;
     }
+
+
 
     public long getId() {
         return id;
@@ -46,6 +59,22 @@ public class User implements Serializable {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public String getUserId() {
+        return userId;
+    }
+
+    public void setUserId(String userId) {
+        this.userId = userId;
+    }
+
+    public String getUserPassword() {
+        return userPassword;
+    }
+
+    public void setUserPassword(String userPassword) {
+        this.userPassword = userPassword;
     }
 
     public String getFirstName() {
@@ -73,11 +102,19 @@ public class User implements Serializable {
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
     public void setEmail(String email) {
-        Email = email;
+        email = email;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
     }
 
     public LocalDate getStartDate() {
@@ -100,8 +137,13 @@ public class User implements Serializable {
     public String toString() {
         return "User{" +
                 "id=" + id +
+                ", userId='" + userId + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", email='" + email + '\'' +
+                ", startDate=" + startDate +
+                ", cardInfo='" + cardInfo + '\'' +
                 '}';
     }
 }
