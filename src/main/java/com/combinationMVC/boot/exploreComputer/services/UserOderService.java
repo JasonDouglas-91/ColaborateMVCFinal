@@ -7,10 +7,11 @@ import com.combinationMVC.boot.exploreComputer.entity.UserOrder;
 import com.combinationMVC.boot.exploreComputer.repo.ProductRepository;
 import com.combinationMVC.boot.exploreComputer.repo.UserOrderRepository;
 import com.combinationMVC.boot.exploreComputer.repo.UserRepository;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.slf4j.Logger;
+
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -24,7 +25,7 @@ public class UserOderService {
     private UserRepository userRepository;
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-//    private final Logger log  = LoggerFactory.getLogger(UserOderService.class);
+    private final Logger log  = LoggerFactory.getLogger(UserOderService.class);
 
     @Autowired
     public UserOderService(ProductRepository productRepository, UserOrderRepository userOrderRepository, UserRepository userRepository) {
@@ -33,13 +34,18 @@ public class UserOderService {
         this.userRepository = userRepository;
     }
 
-    public List<Order> getOrder(){
-//        Iterable<Product> products = this.productRepository.findAll();
-//        log.info("this is info");
-//        log.debug("-------------------------------------------------------------------test");
-        return null;
-
+    public String hello(){
+        log.debug("I'm in the service!!!");
+        return "Hello";
     }
+//    public List<UserOrder> getOrder(){
+//        List<UserOrder> order = userOrderRepository.findAll();
+////        Iterable<Product> products = this.productRepository.findAll();
+////        log.info("this is info");
+////        log.debug("-------------------------------------------------------------------test");
+//        return order;
+//
+//    }
 
 //
 //    public List<Order> getOrderForDate(String dateString){
@@ -54,7 +60,7 @@ public class UserOderService {
 //            });
 //
 //        Iterable<UserOrder> userOrders = this.userOrderRepository.findByDate(new java.sql.Date(date.getTime()));
-////        log.debug("-------------------------------------------------------------------test");
+//        log.debug("-------------------------------------------------------------------test");
 ////        Iterable<UserOrder> userOrders = this.userOrderRepository.findAll();
 //
 ////        log.debug("-------------------------------------------------------------------test: {}",userOrders);
@@ -74,7 +80,7 @@ public class UserOderService {
 //        }
 //        return orders;
 //    }
-//
+////
 //    private Date createDateFromDateString(String dateString){
 //        Date date = null;
 //        if(null!=dateString){
