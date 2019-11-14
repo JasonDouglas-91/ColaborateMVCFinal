@@ -2,7 +2,6 @@ package com.combinationMVC.boot.exploreComputer.repo;
 
 import com.combinationMVC.boot.exploreComputer.entity.UserOrder;
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
