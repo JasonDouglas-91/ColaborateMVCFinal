@@ -24,10 +24,10 @@ public class ProductService {
     }
     public List<ProductsDomain> getAllProducts(){
         Iterable<Product> products = this.productRepository.findAll();
-        System.out.println(products.toString()+"============I'm in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+//        System.out.println(products.toString()+"============I'm in!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
         Map<Long,ProductsDomain> productsDomainMap = new HashMap<>();
         products.forEach(product -> {
-            System.out.println("============This is product!!!");
+//            System.out.println(product+"============This is product!!!");
             ProductsDomain productsDomain = new ProductsDomain();
             productsDomain.setProductId(product.getId());
             productsDomain.setProductName(product.getName());

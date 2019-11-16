@@ -20,7 +20,7 @@ public class UserOrder implements Serializable {
     @Column(name="PRODUCT_ID")
     private long productId;
     @Column(name="ORDER_DATE")
-    private Date orderDate;
+    private Date date;
 
 
     public long getId() {
@@ -47,10 +47,10 @@ public class UserOrder implements Serializable {
     }
 
     public Date getOrderDate() {
-        return orderDate;
+        return date;
     }
 
     public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+        this.date = orderDate;
     }
 }

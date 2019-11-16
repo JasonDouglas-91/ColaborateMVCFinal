@@ -6,10 +6,11 @@ import org.springframework.stereotype.Repository;
 
 import java.sql.Date;
 import java.util.List;
+import java.util.Optional;
 
 @Repository
 public interface UserOrderRepository extends JpaRepository<UserOrder,Long> {
-
-//    List<UserOrder> findByDate(Date date);
+//    Optional<UserOrder> findById(Long userId);
+    List<UserOrder> findByDate(Date date);
 
 }

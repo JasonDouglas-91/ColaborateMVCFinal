@@ -1,9 +1,5 @@
 package com.combinationMVC.boot.exploreComputer.services;
 
-import com.combinationMVC.boot.exploreComputer.domain.Order;
-import com.combinationMVC.boot.exploreComputer.entity.Product;
-import com.combinationMVC.boot.exploreComputer.entity.User;
-import com.combinationMVC.boot.exploreComputer.entity.UserOrder;
 import com.combinationMVC.boot.exploreComputer.repo.ProductRepository;
 import com.combinationMVC.boot.exploreComputer.repo.UserOrderRepository;
 import com.combinationMVC.boot.exploreComputer.repo.UserRepository;
@@ -13,30 +9,60 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.DateFormat;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
 
 
 @Service
-public class UserOderService {
+public class UserOrderService {
     private ProductRepository productRepository;
     private UserOrderRepository userOrderRepository;
     private UserRepository userRepository;
 
     private static final DateFormat DATE_FORMAT = new SimpleDateFormat("yyyy-MM-dd");
-    private final Logger log  = LoggerFactory.getLogger(UserOderService.class);
+    private final Logger log  = LoggerFactory.getLogger(UserOrderService.class);
 
     @Autowired
-    public UserOderService(ProductRepository productRepository, UserOrderRepository userOrderRepository, UserRepository userRepository) {
+    public UserOrderService(ProductRepository productRepository, UserOrderRepository userOrderRepository, UserRepository userRepository) {
         this.productRepository = productRepository;
         this.userOrderRepository = userOrderRepository;
         this.userRepository = userRepository;
     }
 
-    public String hello(){
-        log.debug("I'm in the service!!!");
-        return "Hello";
+//    public List<Order> getOrderbyDate(Date date){
+    public String getOrderbyDate(Date date){
+//        Iterable<Product> products = this.productRepository.findAll();
+//        Map<Long,Order> orderMap = new HashMap<>();
+//        products.forEach(product -> {
+//            Order order = new Order();
+//            order.setProductId(product.getId());
+//            order.setProductName(product.getName());
+//            order.setProductPrice(product.getPrice());
+//            orderMap.put(product.getId(),order);
+//        });
+//
+        java.sql.Date convertedDate = new java.sql.Date(date.getTime());
+        System.out.println("THis is date>>>>>>>>>>>>>>>>"+convertedDate);
+//        Iterable<UserOrder> userOrders = this.userOrderRepository.findByDate(new java.sql.Date(date.getTime()));
+//        if(null!=userOrders){
+//            userOrders.forEach(userOrder -> {
+//                Optional<User> userResponse = this.userRepository.findById(userOrder.getUserId());
+//                if(userResponse.isPresent()){
+//                    User user = userResponse.get();
+//                    Order order = orderMap.get(userOrder.getId());
+//                    order.setDate(date);
+//                    order.setFirstName(user.getFirstName());
+//                    order.setLastName(user.getLastName());
+//                    order.setUserId(user.getId());
+//                }
+//            });
+//        }
+//        List<Order> orders = new ArrayList<>();
+//        for(Long productId:orderMap.keySet()){
+//            orders.add(orderMap.get(productId));
+//        }
+//        return orders;
+        return "test";
     }
 //    public List<UserOrder> getOrder(){
 //        List<UserOrder> order = userOrderRepository.findAll();

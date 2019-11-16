@@ -3,7 +3,7 @@ package com.combinationMVC.boot.exploreComputer.entity;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-import java.util.Set;
+import java.util.Date;
 
 import javax.persistence.*;
 
@@ -29,7 +29,7 @@ public class User implements Serializable {
     @Column(name="ADDRESS")
     private String address;
     @Column(name="START_DATE")
-    private LocalDate startDate;
+    private Date startDate;
     @Column(name="CARD_INFO")
     private String cardInfo;
 
@@ -38,7 +38,7 @@ public class User implements Serializable {
 
     }
 
-    public User(long id, String userId, String userPassword, String firstName, String lastName, String phoneNumber, String email, String address, LocalDate startDate, String cardInfo) {
+    public User(long id, String userId, String userPassword, String firstName, String lastName, String phoneNumber, String email, String address, Date startDate, String cardInfo) {
         this.id = id;
         this.userId = userId;
         this.userPassword = userPassword;
@@ -117,11 +117,11 @@ public class User implements Serializable {
         this.address = address;
     }
 
-    public LocalDate getStartDate() {
+    public Date getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(LocalDate startDate) {
+    public void setStartDate(Date startDate) {
         this.startDate = startDate;
     }
 
