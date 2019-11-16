@@ -1,13 +1,19 @@
 package com.combinationMVC.boot.exploreComputer.controller;
 
-import com.combinationMVC.boot.exploreComputer.domain.User;
-import com.combinationMVC.boot.exploreComputer.exceptions.UserNotFoundException;
-import com.combinationMVC.boot.exploreComputer.repo.UserRepository;
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
+import com.combinationMVC.boot.exploreComputer.entity.User;
+import com.combinationMVC.boot.exploreComputer.exceptions.UserNotFoundException;
+import com.combinationMVC.boot.exploreComputer.repo.UserRepository;
 
 @Controller
 public class UserController {

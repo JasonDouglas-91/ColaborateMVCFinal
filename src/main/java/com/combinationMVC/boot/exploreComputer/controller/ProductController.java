@@ -1,6 +1,6 @@
 package com.combinationMVC.boot.exploreComputer.controller;
 
-import com.combinationMVC.boot.exploreComputer.domain.Product;
+import com.combinationMVC.boot.exploreComputer.entity.Product;
 import com.combinationMVC.boot.exploreComputer.exceptions.ProductNotFoundException;
 import com.combinationMVC.boot.exploreComputer.repo.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
