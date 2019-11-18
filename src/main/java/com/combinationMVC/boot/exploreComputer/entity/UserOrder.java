@@ -6,7 +6,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.time.LocalDateTime;
-import java.util.Date;
+import java.sql.Date;
 
 @Entity
 @Table(name="USERORDER")
@@ -20,7 +20,7 @@ public class UserOrder implements Serializable {
     @Column(name="PRODUCT_ID")
     private long productId;
     @Column(name="ORDER_DATE")
-    private Date orderDate;
+    private Date date;
 
     public UserOrder() {
     	
@@ -30,7 +30,7 @@ public class UserOrder implements Serializable {
     	this.id = id;
     	this.userId = userId;
     	this.productId = productId;
-    	this.orderDate = orderDate;
+    	this.date = orderDate;
     }
 
     public long getId() {
@@ -57,10 +57,10 @@ public class UserOrder implements Serializable {
     }
 
     public Date getOrderDate() {
-        return orderDate;
+        return date;
     }
 
     public void setOrderDate(Date orderDate) {
-        this.orderDate = orderDate;
+        this.date = orderDate;
     }
 }
