@@ -4,8 +4,11 @@ import com.assignment.ecom.exceptions.ProductNotFoundException;
 import com.assignment.ecom.model.Product;
 import com.assignment.ecom.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.servlet.ModelAndView;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -56,4 +59,33 @@ public class ProductController {
         productRepository.deleteById(id);
     }
 
+    @GetMapping({"/", "/welcome"})
+    public ModelAndView welcome() {
+        List<Product> list = productRepository.findAll();
+
+        //return back to index.jsp
+        ModelAndView model = new ModelAndView("welcome");
+        model.addObject("lists", list);
+
+        return model;
+    }
+
+    private List<String> getList() {
+
+        List<String> list = new ArrayList<String>();
+        list.add("List A");
+        list.add("List B");
+        list.add("List C");
+        list.add("List D");
+        list.add("List E");
+        list.add("List F");
+        list.add("List G");
+        list.add("List H");
+        list.add("List J");
+        list.add("List K");
+        list.add("List L");
+        list.add("List M");
+
+        return list;
+    }
 }
