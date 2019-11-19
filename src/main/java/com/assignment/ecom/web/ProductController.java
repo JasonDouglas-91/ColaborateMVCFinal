@@ -46,6 +46,7 @@ public class ProductController {
                     product.setType(newProduct.getType());
                     product.setPrice(newProduct.getPrice());
                     product.setDescription(newProduct.getDescription());
+                    product.setImagePath(newProduct.getImagePath());
                     return productRepository.save(newProduct);
                 })
                 .orElseGet(() -> {

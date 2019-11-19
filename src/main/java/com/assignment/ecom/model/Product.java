@@ -18,16 +18,20 @@ public class Product implements Serializable {
     @Column
     private long price;
     @Column
+    private String imagePath;
+    @Column
     private String description;
 
-    public Product(){}
+    public Product() {
+    }
 
-    public Product(long id, String name, String type, long price, String description) {
+    public Product(long id, String name, String type, long price, String description, String imagePath) {
         this.id = id;
         this.name = name;
         this.type = type;
         this.price = price;
         this.description = description;
+        this.imagePath = imagePath;
     }
 
     public long getId() {
@@ -44,6 +48,14 @@ public class Product implements Serializable {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getImagePath() {
+        return imagePath;
+    }
+
+    public void setImagePath(String imagePath) {
+        this.imagePath = imagePath;
     }
 
     public String getType() {
@@ -76,6 +88,7 @@ public class Product implements Serializable {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", type='" + type + '\'' +
+                ", type='" + imagePath + '\'' +
                 ", price=" + price +
                 ", description='" + description + '\'' +
                 '}';
