@@ -4,7 +4,12 @@ import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToOne;
+
 import java.io.Serializable;
+import java.util.Set;
+
 
 @Entity
 public class Product implements Serializable {
@@ -19,15 +24,29 @@ public class Product implements Serializable {
     private long price;
     @Column
     private String description;
+    @Column
+    private String image;
+    @OneToOne(mappedBy = "product")
+    private Order order;
 
-    public Product(){}
+    
 
-    public Product(long id, String name, String type, long price, String description) {
-        this.id = id;
+	public Product(){}
+
+    public Product(String name, String type, long price, String description, String image) {
         this.name = name;
         this.type = type;
         this.price = price;
         this.description = description;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public long getId() {
@@ -69,8 +88,17 @@ public class Product implements Serializable {
     public void setDescription(String description) {
         this.description = description;
     }
+    
 
-    @Override
+    public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	@Override
     public String toString() {
         return "Product{" +
                 "id=" + id +

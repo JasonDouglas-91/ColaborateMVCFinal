@@ -39,6 +39,9 @@ public class User {
 
     @ManyToMany
     private Set<Role> roles;
+    
+    @OneToOne(mappedBy = "user")
+    private Order order;
 
     public Long getId() {
         return id;
@@ -79,8 +82,18 @@ public class User {
     public void setRoles(Set<Role> roles) {
         this.roles = roles;
     }
+    
+    
 
-    public String getFirstName() {
+    public Order getOrder() {
+		return order;
+	}
+
+	public void setOrder(Order order) {
+		this.order = order;
+	}
+
+	public String getFirstName() {
         return firstName;
     }
 
