@@ -70,7 +70,7 @@ public class ProductController {
         return model;
     }
 
-    @GetMapping({"/", "/search-product"})
+    @GetMapping("/search-product")
     public ModelAndView searchProduct(@RequestParam(value="searchData") String searchData) {
         List<Product> list = productRepository.findProductsByDescriptionContainsOrNameContains(searchData, searchData);
 
@@ -80,7 +80,7 @@ public class ProductController {
         return model;
     }
 
-    @GetMapping({"/", "/detail-product"})
+    @GetMapping("/detail-product")
     public ModelAndView detailProduct(@RequestParam(value="productId") Long productId) {
         Optional<Product> product = productRepository.findById(productId);
 
