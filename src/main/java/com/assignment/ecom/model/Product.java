@@ -19,15 +19,25 @@ public class Product implements Serializable {
     private long price;
     @Column
     private String description;
+    @Column
+    private String image;
 
     public Product(){}
 
-    public Product(long id, String name, String type, long price, String description) {
-        this.id = id;
+    public Product(String name, String type, long price, String description, String image) {
         this.name = name;
         this.type = type;
         this.price = price;
         this.description = description;
+        this.image = image;
+    }
+
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
     }
 
     public long getId() {
